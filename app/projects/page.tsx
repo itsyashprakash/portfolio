@@ -1,8 +1,6 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
 import Image from "next/image"
 import Link from "next/link"
 import MainNavigation from "@/components/main-navigation"
@@ -10,111 +8,17 @@ import { Button } from "@/components/ui/button"
 import { ExternalLink } from "lucide-react"
 import InteractiveText from "@/components/interactive-text"
 import MagneticElement from "@/components/magnetic-element"
+import { usePathname } from "next/navigation"
 
 export default function ProjectsPage() {
   const featuredRef = useRef<HTMLDivElement>(null)
   const projectsRef = useRef<HTMLDivElement>(null)
+  const pathname = usePathname();
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
-
-    // Featured project animation
-    const featuredTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: featuredRef.current,
-        start: "top 80%",
-      },
-    })
-
-    featuredTl
-      .from(".featured-title", {
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power3.out",
-      })
-      .from(
-        ".featured-content",
-        {
-          y: 30,
-          opacity: 0,
-          duration: 0.8,
-          ease: "power3.out",
-        },
-        "-=0.5",
-      )
-      .from(
-        ".featured-image",
-        {
-          y: 30,
-          opacity: 0,
-          duration: 0.8,
-          ease: "power3.out",
-        },
-        "-=0.5",
-      )
-      .from(
-        ".featured-buttons",
-        {
-          y: 20,
-          opacity: 0,
-          duration: 0.6,
-          ease: "power3.out",
-        },
-        "-=0.5",
-      )
-
-    // Projects animation
-    const projectsTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: projectsRef.current,
-        start: "top 80%",
-      },
-    })
-
-    projectsTl.from(".project-card", {
-      y: 30,
-      opacity: 0,
-      duration: 0.6,
-      stagger: 0.1,
-      ease: "power3.out",
-    })
-
-    // Add hover effect to project cards
-    const projectCards = document.querySelectorAll(".project-card")
-
-    projectCards.forEach((card) => {
-      card.addEventListener("mouseenter", () => {
-        gsap.to(card, {
-          y: -10,
-          scale: 1.02,
-          boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
-          duration: 0.3,
-          ease: "power2.out",
-        })
-      })
-
-      card.addEventListener("mouseleave", () => {
-        gsap.to(card, {
-          y: 0,
-          scale: 1,
-          boxShadow: "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
-          duration: 0.5,
-          ease: "elastic.out(1, 0.3)",
-        })
-      })
-    })
-
-    return () => {
-      featuredTl.kill()
-      projectsTl.kill()
-
-      projectCards.forEach((card) => {
-        card.removeEventListener("mouseenter", () => {})
-        card.removeEventListener("mouseleave", () => {})
-      })
-    }
-  }, [])
+    // No animation
+    return () => {}
+  }, [pathname])
 
   const projects = [
     {

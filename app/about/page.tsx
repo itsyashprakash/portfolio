@@ -1,8 +1,6 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
 import { usePathname } from "next/navigation"
 import MainNavigation from "@/components/main-navigation"
 import InteractiveText from "@/components/interactive-text"
@@ -15,88 +13,8 @@ export default function AboutPage() {
   const pathname = usePathname();
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
-
-    // Section animation
-    const sectionTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: "top 80%",
-      },
-    })
-
-    sectionTl
-      .from(".about-title", {
-        y: 50,
-        opacity: 0,
-        duration: 0.8,
-        ease: "power3.out",
-      })
-      .from(
-        ".about-content",
-        {
-          y: 30,
-          opacity: 0,
-          duration: 0.8,
-          ease: "power3.out",
-        },
-        "-=0.5",
-      )
-
-    // Tech icons animation
-    const techTl = gsap.timeline({
-      scrollTrigger: {
-        trigger: techRef.current,
-        start: "top 80%",
-      },
-    })
-
-    techTl.from(".tech-icon", {
-      y: 30,
-      opacity: 0,
-      duration: 0.6,
-      stagger: 0.1,
-      ease: "power3.out",
-    })
-
-    // Add hover effect to tech icons
-    const techIcons = document.querySelectorAll(".tech-icon")
-    techIcons.forEach((icon) => {
-      const enter = () => {
-        gsap.to(icon, {
-          y: -10,
-          scale: 1.1,
-          duration: 0.3,
-          ease: "power2.out",
-        })
-      }
-      const leave = () => {
-        gsap.to(icon, {
-          y: 0,
-          scale: 1,
-          duration: 0.5,
-          ease: "elastic.out(1, 0.3)",
-        })
-      }
-      icon.addEventListener("mouseenter", enter)
-      icon.addEventListener("mouseleave", leave)
-      // Store handlers for cleanup
-      ;(icon as any).__enter = enter
-      ;(icon as any).__leave = leave
-    })
-
-    return () => {
-      sectionTl.kill()
-      techTl.kill()
-      techIcons.forEach((icon) => {
-        if ((icon as any).__enter) {
-          icon.removeEventListener("mouseenter", (icon as any).__enter)
-        }
-        if ((icon as any).__leave) {
-          icon.removeEventListener("mouseleave", (icon as any).__leave)
-        }
-      })
-    }
+    // No animation
+    return () => {}
   }, [pathname])
 
   const techStack = [

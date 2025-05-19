@@ -3,7 +3,6 @@
 import { useEffect, useRef } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { gsap } from "gsap"
 import { Github, Linkedin } from "lucide-react"
 import { cn } from "@/lib/utils"
 import MagneticElement from "@/components/magnetic-element"
@@ -13,19 +12,8 @@ export default function MainNavigation() {
   const pathname = usePathname()
 
   useEffect(() => {
-    const tl = gsap.timeline()
-
-    tl.from(navRef.current, {
-      y: -20,
-      opacity: 0,
-      duration: 0.8,
-      ease: "power3.out",
-      delay: 0.5,
-    })
-
-    return () => {
-      tl.kill()
-    }
+    // No animation
+    return () => {}
   }, [])
 
   const navItems = [

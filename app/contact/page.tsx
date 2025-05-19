@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import { gsap } from "gsap"
+import { usePathname } from "next/navigation"
 import MainNavigation from "@/components/main-navigation"
 import { Button } from "@/components/ui/button"
 import { Mail } from "lucide-react"
@@ -10,41 +10,12 @@ import MagneticElement from "@/components/magnetic-element"
 
 export default function ContactPage() {
   const sectionRef = useRef<HTMLDivElement>(null)
+  const pathname = usePathname();
 
   useEffect(() => {
-    const tl = gsap.timeline()
-
-    tl.from(".contact-title", {
-      y: 50,
-      opacity: 0,
-      duration: 0.8,
-      ease: "power3.out",
-    })
-      .from(
-        ".contact-description",
-        {
-          y: 30,
-          opacity: 0,
-          duration: 0.8,
-          ease: "power3.out",
-        },
-        "-=0.5",
-      )
-      .from(
-        ".contact-button",
-        {
-          y: 20,
-          opacity: 0,
-          duration: 0.6,
-          ease: "power3.out",
-        },
-        "-=0.5",
-      )
-
-    return () => {
-      tl.kill()
-    }
-  }, [])
+    // No animation
+    return () => {}
+  }, [pathname])
 
   return (
     <div className="min-h-screen">

@@ -1,7 +1,7 @@
 "use client"
 
 import { useTrail, animated } from "@react-spring/web"
-import { useRef, useEffect, useCallback } from "react"
+import { useRef, useEffect, useCallback, useState } from "react"
 import { cn } from "@/lib/utils"
 
 const fast = { tension: 1200, friction: 40 }
@@ -29,7 +29,7 @@ export default function BlobCursor({
   }))
 
   const ref = useRef<HTMLDivElement>(null)
-  const isPointerDevice = useRef(true)
+  const [showCursor, setShowCursor] = useState(false)
 
   const updatePosition = useCallback(() => {
     if (ref.current) {
@@ -50,9 +50,10 @@ export default function BlobCursor({
   )
 
   useEffect(() => {
-    // Check if device has pointer
-    isPointerDevice.current = window.matchMedia("(pointer: fine)").matches
-    if (!isPointerDevice.current) return
+    // Only run on client
+    const pointerFine = window.matchMedia("(pointer: fine)").matches
+    setShowCursor(pointerFine)
+    if (!pointerFine) return
 
     const handleResize = () => {
       updatePosition()
@@ -69,8 +70,7 @@ export default function BlobCursor({
     }
   }, [handleMove, updatePosition])
 
-  // Don't render on touch devices
-  if (!isPointerDevice.current) return null
+  if (!showCursor) return null
 
   return (
     <div className={cn("fixed inset-0 z-50 pointer-events-none overflow-hidden", className)}>

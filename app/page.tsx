@@ -1,8 +1,6 @@
 "use client"
 
 import { useEffect, useRef } from "react"
-import { gsap } from "gsap"
-import { ScrollTrigger } from "gsap/ScrollTrigger"
 import MainNavigation from "@/components/main-navigation"
 import { Button } from "@/components/ui/button"
 import { Download } from "lucide-react"
@@ -14,51 +12,8 @@ export default function Home() {
   const heroRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger)
-
-    // Hero animation
-    const tl = gsap.timeline()
-
-    tl.from(".hero-title", {
-      y: 50,
-      opacity: 0,
-      duration: 1,
-      ease: "power3.out",
-    })
-      .from(
-        ".hero-subtitle",
-        {
-          y: 30,
-          opacity: 0,
-          duration: 0.8,
-          ease: "power3.out",
-        },
-        "-=0.6",
-      )
-      .from(
-        ".hero-description",
-        {
-          y: 20,
-          opacity: 0,
-          duration: 0.8,
-          ease: "power3.out",
-        },
-        "-=0.6",
-      )
-      .from(
-        ".hero-buttons",
-        {
-          y: 20,
-          opacity: 0,
-          duration: 0.8,
-          ease: "power3.out",
-        },
-        "-=0.6",
-      )
-
-    return () => {
-      tl.kill()
-    }
+    // No animation
+    return () => {}
   }, [])
 
   return (
