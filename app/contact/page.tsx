@@ -1,0 +1,85 @@
+"use client"
+
+import { useEffect, useRef } from "react"
+import { gsap } from "gsap"
+import MainNavigation from "@/components/main-navigation"
+import { Button } from "@/components/ui/button"
+import { Mail } from "lucide-react"
+import InteractiveText from "@/components/interactive-text"
+import MagneticElement from "@/components/magnetic-element"
+
+export default function ContactPage() {
+  const sectionRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const tl = gsap.timeline()
+
+    tl.from(".contact-title", {
+      y: 50,
+      opacity: 0,
+      duration: 0.8,
+      ease: "power3.out",
+    })
+      .from(
+        ".contact-description",
+        {
+          y: 30,
+          opacity: 0,
+          duration: 0.8,
+          ease: "power3.out",
+        },
+        "-=0.5",
+      )
+      .from(
+        ".contact-button",
+        {
+          y: 20,
+          opacity: 0,
+          duration: 0.6,
+          ease: "power3.out",
+        },
+        "-=0.5",
+      )
+
+    return () => {
+      tl.kill()
+    }
+  }, [])
+
+  return (
+    <div className="min-h-screen">
+      <MainNavigation />
+
+      <main className="container mx-auto px-4 py-12">
+        <section
+          ref={sectionRef}
+          className="max-w-4xl mx-auto py-24 flex flex-col items-center justify-center text-center"
+        >
+          <h1 className="contact-title text-5xl md:text-6xl font-bold mb-8">
+            <InteractiveText highlight="gradient" animation="wave">
+              Let&apos;s Work Together
+            </InteractiveText>
+          </h1>
+          <p className="contact-description text-xl text-gray-600 mb-12 max-w-2xl">
+            I&apos;m always excited to <InteractiveText highlight="blue">collaborate</InteractiveText>,{" "}
+            <InteractiveText highlight="purple">innovate</InteractiveText>, and build{" "}
+            <InteractiveText highlight="pink">meaningful solutions</InteractiveText>. Whether you have a project, a job
+            opportunity, or just want to connect — let&apos;s talk!
+          </p>
+          <MagneticElement>
+            <Button asChild size="lg" className="contact-button rounded-full px-8">
+              <a href="mailto:contact@example.com">
+                <Mail className="mr-2 h-5 w-5" />
+                Get in Touch
+              </a>
+            </Button>
+          </MagneticElement>
+        </section>
+      </main>
+
+      <footer className="container mx-auto px-4 py-6 text-center text-sm text-gray-500">
+        © 2025 Jay Jhaveri. All rights reserved.
+      </footer>
+    </div>
+  )
+}
