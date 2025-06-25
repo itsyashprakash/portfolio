@@ -27,7 +27,7 @@ export default function MainNavigation() {
       <nav className="flex items-center justify-between">
         <MagneticElement strength={0.2}>
           <Link href="/" className="text-2xl font-bold">
-            Jay Jhaveri
+            Yash Gurav
           </Link>
         </MagneticElement>
 
@@ -51,7 +51,7 @@ export default function MainNavigation() {
           <div className="flex items-center gap-2 ml-4">
             <MagneticElement strength={0.2}>
               <Link
-                href="https://github.com"
+                href="https://github.com/itsyashprakash"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 text-gray-600 hover:text-gray-900 transition-colors"
@@ -61,7 +61,7 @@ export default function MainNavigation() {
             </MagneticElement>
             <MagneticElement strength={0.2}>
               <Link
-                href="https://linkedin.com"
+                href="https://linkedin.com/in/itsyashprakash"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="p-2 text-gray-600 hover:text-gray-900 transition-colors"

@@ -39,7 +39,7 @@ export default function ContactPage() {
           </p>
           <MagneticElement>
             <Button asChild size="lg" className="contact-button rounded-full px-8">
-              <a href="mailto:contact@example.com">
+              <a href="mailto:yashguravofficial@gmail.com">
                 <Mail className="mr-2 h-5 w-5" />
                 Get in Touch
               </a>
@@ -49,7 +49,7 @@ export default function ContactPage() {
       </main>
 
       <footer className="container mx-auto px-4 py-6 text-center text-sm text-gray-500">
-        © 2025 Jay Jhaveri. All rights reserved.
+        © 2025 Yash Gurav. All rights reserved.
       </footer>
     </div>
   )

@@ -55,7 +55,7 @@ export default function Home() {
             </MagneticElement>
             <MagneticElement>
               <Button asChild variant="outline" size="lg" className="rounded-full px-8">
-                <Link href="public\YashGurav_Resume.docx" download>
+                <Link href="public\YashGurav_Resume.pdf" download>
                   <span className="flex items-center gap-2">
                     <Download size={18} />
                     Download Resume

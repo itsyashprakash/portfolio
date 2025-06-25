@@ -147,7 +147,7 @@ export default function ProjectsPage() {
       </main>
 
       <footer className="container mx-auto px-4 py-6 text-center text-sm text-gray-500">
-        © 2025 Jay Jhaveri. All rights reserved.
+        © 2025 Yash Gurav. All rights reserved.
       </footer>
     </div>
   )
