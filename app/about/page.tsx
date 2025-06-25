@@ -5,7 +5,6 @@ import { usePathname } from "next/navigation"
 import MainNavigation from "@/components/main-navigation"
 import InteractiveText from "@/components/interactive-text"
 import MagneticElement from "@/components/magnetic-element"
-import { Cpu, Flame, BrainCircuit, FileCode, Bot } from "lucide-react"
 
 export default function AboutPage() {
   const sectionRef = useRef<HTMLDivElement>(null)
@@ -17,12 +16,23 @@ export default function AboutPage() {
     return () => {}
   }, [pathname])
 
-  const techStack = [
-    { name: "Flutter", icon: Cpu, color: "text-blue-500" },
-    { name: "Firebase", icon: Flame, color: "text-orange-500" },
-    { name: "OpenAI", icon: BrainCircuit, color: "text-green-500" },
-    { name: "TypeScript", icon: FileCode, color: "text-blue-600" },
-    { name: "Anthropic", icon: Bot, color: "text-purple-500" },
+  useEffect(() => {
+    const link = document.createElement('link');
+    link.rel = 'stylesheet';
+    link.type = 'text/css';
+    link.href = 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css';
+    document.head.appendChild(link);
+    return () => {
+      document.head.removeChild(link);
+    };
+  }, []);
+
+  const techStack: { name: string; icon: string }[] = [
+    { name: "React", icon: "devicon-react-original-wordmark colored" },
+    { name: "Express", icon: "devicon-express-original-wordmark" },
+    { name: "Node.js", icon: "devicon-nodejs-plain-wordmark colored" },
+    { name: "MongoDB", icon: "devicon-mongodb-plain-wordmark colored" },
+    { name: "AWS", icon: "devicon-amazonwebservices-plain-wordmark colored" },
   ]
 
   return (
@@ -63,7 +73,8 @@ export default function AboutPage() {
                 key={tech.name}
                 className="tech-icon flex flex-col items-center justify-center bg-white rounded-xl p-6 shadow-sm"
               >
-                <tech.icon className={`w-12 h-12 mb-3 ${tech.color}`} />
+                {/* @ts-expect-error: devicon <i> tag is not typed in JSX */}
+                <i className={`${tech.icon} text-5xl mb-3`}></i>
                 <span className="text-sm font-medium">{tech.name}</span>
               </MagneticElement>
             ))}
