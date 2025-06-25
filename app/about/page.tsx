@@ -70,12 +70,12 @@ export default function AboutPage() {
           <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
             {techStack.map((tech) => (
               <MagneticElement
-                key={tech.name}
-                className="tech-icon flex flex-col items-center justify-center bg-white rounded-xl p-6 shadow-sm"
+                key={tech.icon}
+                className="tech-icon flex flex-col items-center justify-center bg-white rounded-xl p-8 shadow-sm h-40 w-full"
               >
                 {/* @ts-expect-error: devicon <i> tag is not typed in JSX */}
-                <i className={`${tech.icon} text-5xl mb-3`}></i>
-                <span className="text-sm font-medium">{tech.name}</span>
+                <i className={`${tech.icon} text-6xl mb-0 flex items-center justify-center w-full`}></i>
+                {tech.name && <span className="text-sm font-medium mt-2">{tech.name}</span>}
               </MagneticElement>
             ))}
           </div>
