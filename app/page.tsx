@@ -28,22 +28,22 @@ export default function Home() {
           <h1 className="hero-title text-5xl md:text-7xl font-extrabold tracking-tight mb-6">
             Hi, I&apos;m{" "}
             <InteractiveText highlight="gradient" animation="wave">
-              Jay Jhaveri
+              Yash Gurav
             </InteractiveText>
           </h1>
           <h2 className="hero-subtitle text-xl md:text-2xl font-medium text-gray-700 mb-8">
             <InteractiveText highlight="blue" animation="fade">
-              Senior Software Engineer
+              Software Engineer
             </InteractiveText>{" "}
             |{" "}
             <InteractiveText highlight="purple" animation="fade">
-              AI Integration Specialist
+              Player Support Specialist
             </InteractiveText>
           </h2>
           <p className="hero-description text-lg text-gray-600 mb-10 max-w-2xl">
-            I engineer <InteractiveText highlight="blue">intelligent systems</InteractiveText> that automate workflows,
+            I engineer <InteractiveText highlight="blue">Apps</InteractiveText> that solve problems,
             power <InteractiveText highlight="purple">user experiences</InteractiveText>, and leverage{" "}
-            <InteractiveText highlight="pink">AI innovation</InteractiveText>.
+            <InteractiveText highlight="pink">modern technologies</InteractiveText>.
           </p>
           <div className="hero-buttons flex flex-col sm:flex-row gap-4">
             <MagneticElement>
@@ -55,7 +55,7 @@ export default function Home() {
             </MagneticElement>
             <MagneticElement>
               <Button asChild variant="outline" size="lg" className="rounded-full px-8">
-                <Link href="#" download>
+                <Link href="public\YashGurav_Resume.docx" download>
                   <span className="flex items-center gap-2">
                     <Download size={18} />
                     Download Resume
@@ -68,7 +68,7 @@ export default function Home() {
       </main>
 
       <footer className="container mx-auto px-4 py-6 text-center text-sm text-gray-500">
-        © 2025 Jay Jhaveri. All rights reserved.
+        © 2025 Yash Gurav. All rights reserved.
       </footer>
     </div>
   )
