@@ -28,11 +28,11 @@ export default function AboutPage() {
   }, []);
 
   const techStack: { name: string; icon: string }[] = [
-    { name: "React", icon: "devicon-react-original-wordmark colored" },
-    { name: "Express", icon: "devicon-express-original-wordmark" },
-    { name: "Node.js", icon: "devicon-nodejs-plain-wordmark colored" },
-    { name: "MongoDB", icon: "devicon-mongodb-plain-wordmark colored" },
-    { name: "AWS", icon: "devicon-amazonwebservices-plain-wordmark colored" },
+    { name: "", icon: "devicon-react-original-wordmark colored" },
+    { name: "", icon: "devicon-express-original-wordmark" },
+    { name: "", icon: "devicon-nodejs-plain-wordmark colored" },
+    { name: "", icon: "devicon-mongodb-plain-wordmark colored" },
+    { name: "", icon: "devicon-amazonwebservices-plain-wordmark colored" },
   ]
 
   return (
@@ -83,7 +83,7 @@ export default function AboutPage() {
       </main>
 
       <footer className="container mx-auto px-4 py-6 text-center text-sm text-gray-500">
-        © 2025 Jay Jhaveri. All rights reserved.
+        © 2025 Yash Gurav. All rights reserved.
       </footer>
     </div>
   )
