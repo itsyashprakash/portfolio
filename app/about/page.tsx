@@ -71,11 +71,11 @@ export default function AboutPage() {
             {techStack.map((tech) => (
               <MagneticElement
                 key={tech.icon}
-                className="tech-icon flex flex-col items-center justify-center bg-white rounded-xl p-8 shadow-sm h-40 w-full"
+                className="tech-icon bg-white rounded-xl shadow-sm h-40 w-full flex items-center justify-center"
               >
                 {/* @ts-expect-error: devicon <i> tag is not typed in JSX */}
-                <i className={`${tech.icon} text-6xl mb-0 flex items-center justify-center w-full`}></i>
-                {tech.name && <span className="text-sm font-medium mt-2">{tech.name}</span>}
+                <i className={`${tech.icon} text-6xl`} style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', width: '100%', height: '100%' }}></i>
+                {tech.name && <span className="text-sm font-medium mt-2 text-center w-full">{tech.name}</span>}
               </MagneticElement>
             ))}
           </div>
