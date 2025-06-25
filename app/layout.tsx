@@ -17,9 +17,8 @@ const poppins = Poppins({
 })
 
 export const metadata = {
-  title: "Jay Jhaveri | Senior Software Engineer",
-  description: "AI Integration Specialist and Senior Software Engineer",
-    generator: 'v0.dev'
+  title: "Yash Gurav | Software Engineer",
+  description: "Software Engineer and Player Support Specialist",
 }
 
 export default function RootLayout({
